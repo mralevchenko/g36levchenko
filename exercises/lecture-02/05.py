@@ -1,6 +1,6 @@
 from decimal import Decimal, getcontext
 
-# Встановимо точність обчислень (наприклад, 10 знаків після коми)
+# Встановимо точність обчислень 
 getcontext().prec = 10
 
 def complex_interest(P, r, n, t):
