@@ -22,17 +22,24 @@ class Circle:
         self.r = r
 
 
-# --- Приклад використання ---
+# --- Основна частина з input ---
 
-# Створення кола
-c = Circle(3, 4, 1)
+def get_circle_input():
+    try:
+        x = float(input("Введіть координату x центру кола: "))
+        y = float(input("Введіть координату y центру кола: "))
+        r = float(input("Введіть радіус кола: "))
+        return Circle(x, y, r)
+    except ValueError:
+        print("Будь ласка, введіть коректні числові значення!")
+        return None
+    except AssertionError as e:
+        print(e)
+        return None
 
-# Виведення довжини та площі кола
-print(c.length(), c.square())  # 6.283185307179586 3.141592653589793
+# Створення кола через input
+circle = get_circle_input()
 
-# Спроба встановлення від'ємного радіусу
-try:
-    c.set_r(-1)  # Очікується виключення
-except AssertionError as e:
-    print(e)  # Радіус має бути позитивним числом!
-
+if circle:
+    print("Довжина кола:", circle.length())
+    print("Площа кола:", circle.square())
